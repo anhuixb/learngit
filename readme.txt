@@ -52,3 +52,20 @@ cat file1.txt
 $ git log
 # 查看历史记录（参数表示：每条记录显示一行）
 $ git log --pretty=oneline
+
+# 生成密钥
+ssh-keygen -t rsa -C "anhuixb@163.com"
+# 仓库目录同级，会生成.ssh目录，公钥内容添加到GitHub帐户中
+# 关联远程库（要求GitHub添加repository，这里名称是:learngit）
+git remote add origin git@github.com:anhuixb/learngit.git
+# 以上使用git协议，速度更快或使用以下https
+git remote add origin https://github.com/anhuixb/learngit.git
+# 推送到远程库(第一次)
+git push -u origin master
+# 推送最新修改到远程库
+git push origin master
+
+# 从远程库克隆到本地
+# 先cd到根目录
+$ cd ~
+$ git clone git@github.com:anhuixb/gitskills.git
