@@ -95,7 +95,7 @@ $ git merge --no-ff -m "merge with no-ff" dev
 # 多个任务需要同时工作，但部分bug要优先处理提交，可以将之前的工作状态保存，在其它分支解决优先的bug并提交后，再恢复之前的分支工作状态
 # 工作现场“储藏”起来
 $ git stash
-# 查询工作现场存储记录
+# 查询工作现场"储藏"记录
 $ git stash list
 
 # 恢复（保留被恢复的stash记录）
