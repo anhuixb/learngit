@@ -65,7 +65,31 @@ git push -u origin master
 # 推送最新修改到远程库
 git push origin master
 
-# 从远程库克隆到本地
+# 从远程库克隆到本地（这里gitskills是githup中创建的库）
 # 先cd到根目录
 $ cd ~
 $ git clone git@github.com:anhuixb/gitskills.git
+
+# 分支
+# 查看当前分支(有星号，表示当前所在分支)
+$ git branch
+# 创建分支（这里dev是分支名称）
+$ git branch dev
+# 删除分支
+$ git branch -d dev
+# 切换分支
+$ git checkout dev
+# 创建并切换分支
+$ git checkout -b dev
+# 指定分支合并到当前分支（删除分支历史）
+$ git merge dev
+# 指定分支合并到当前分支（保留分支历史）
+$ git merge --no-ff -m "merge with no-ff" dev
+
+# 分支合并冲突时（例如同时修改了同一行，内容还不一样，需要在合并出错后，手动更改文件，合并类似以下格式内容）
+<<<<<<< HEAD
+当前版本冲突行的内容
+=======
+被合并版本冲突行的内容
+>>>>>>> dev
+
