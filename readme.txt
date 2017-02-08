@@ -52,18 +52,22 @@ cat file1.txt
 $ git log
 # 查看历史记录（参数表示：每条记录显示一行）
 $ git log --pretty=oneline
+# 查看最近一条记录
+$ git log -1
 
 # 生成密钥
-ssh-keygen -t rsa -C "anhuixb@163.com"
+$ ssh-keygen -t rsa -C "anhuixb@163.com"
 # 仓库目录同级，会生成.ssh目录，公钥内容添加到GitHub帐户中
 # 关联远程库（要求GitHub添加repository，这里名称是:learngit）
-git remote add origin git@github.com:anhuixb/learngit.git
+$ git remote add origin git@github.com:anhuixb/learngit.git
 # 以上使用git协议，速度更快或使用以下https
-git remote add origin https://github.com/anhuixb/learngit.git
+$ git remote add origin https://github.com/anhuixb/learngit.git
 # 推送到远程库(第一次)
-git push -u origin master
+$ git push -u origin master
 # 推送最新修改到远程库
-git push origin master
+$ git push origin master
+# 查看远程库的信息(显示抓取fetch和推送push地址)
+$ git remote -v
 
 # 从远程库克隆到本地（这里gitskills是githup中创建的库）
 # 先cd到根目录
@@ -87,6 +91,10 @@ $ git checkout -b dev
 $ git merge dev
 # 指定分支合并到当前分支（保留分支历史）
 $ git merge --no-ff -m "merge with no-ff" dev
+# 合并远程库到本地（远程比本地代码要新，无法提交时）
+$ git pull
+# 本地分支和远程分支的创建链接关系（没有关系时合并远程库时会失败）
+$ git branch --set-upstream dev origin/dev
 
 # 分支合并冲突时（例如同时修改了同一行，内容还不一样，需要在合并出错后，手动更改文件，合并类似以下格式内容）
 <<<<<<< HEAD
@@ -107,3 +115,39 @@ $ git stash apply stash@{0}
 $ git stash drop
 # 恢复并删除stash记录
 $ git stash pop
+
+# 打标签（创建标签，往往是指定当前分支最新提交时的版本说明）
+$ git tag v1.0
+# 指定具体版本号的版本说明（版本号由log命令查询）
+$ git tag v0.9 6224937
+$ git tag -a v0.1 -m "这里是标签说明文字" 3628164
+# 显示标签所在的版本具体信息
+$ git show v1.0
+# 推送标签到远程：推送一个、推送全部
+$ git push origin v1.0
+$ git push origin --tags
+# 删除标签：先删除本地，在删除远程标签
+$ git tag -d v1.0
+$ git push origin :refs/tags/v1.0
+
+# 忽略要提交的文件
+# 仓库目录添加.gitignore文件，并提交到Git。文件内容是要忽略的文件名，或通配名，如*.ini
+# 检查要提交的文件名是否是被忽略的文件
+$ git check-ignore -v App.class
+
+# 如果命令窗口中文字没有颜色可以设置
+$ git config --global color.ui true
+
+# 添加命令别名（比如简化commit为ci）
+$ git config --global alias.ci commit
+# 此时提交命令可以是
+$ git ci -m "command easy..."
+# 添加命令别名：log有颜色、有分支线的记录显示
+$ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+$ git lg
+
+# 删除命令别名（添加命令时，加了--global全局命令）
+# 打开仓库中.git/config文件，删除[alias]下的内容即可
+
+# 删除命令别名（当前用户，没有加--global）
+# 打开仓库中.gitconfig文件，删除[alias]下的内容即可
