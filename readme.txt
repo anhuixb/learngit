@@ -1,6 +1,6 @@
 Git is a distributed version control system.
 Git is free software.
-# 测试修改冲突 for master
+在master中测试修改冲突！
 
 git command
 ===========================================
@@ -77,6 +77,8 @@ $ git branch
 $ git branch dev
 # 删除分支
 $ git branch -d dev
+# 删除一个没有被合并的分支（强行删除）
+$ git branch -D dev
 # 切换分支
 $ git checkout dev
 # 创建并切换分支
