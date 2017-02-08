@@ -1,5 +1,6 @@
 Git is a distributed version control system.
 Git is free software.
+在dev中测试修改冲突！
 
 git command
 ===========================================
