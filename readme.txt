@@ -5,9 +5,9 @@ Git is free software.
 git command
 ===========================================
 # windows安装地址：https://pan.baidu.com/s/1kU5OCOB#list/path=%2Fpub%2Fgit
-# 安装后，打开 Git Bash
+# 安装后，任何目录右击菜单，可以打开 Git Bash Here
 
-# 自报家门
+# 自报家门（定义提交的用户信息）
 $ git config --global user.name "Your Name"
 $ git config --global user.email "email@example.com"
 
